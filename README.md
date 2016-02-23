@@ -14,9 +14,9 @@ to develop a classifier which predicts the product group based on the given feat
 
 Given data consists of train and test files. Description of data present in these files is given below.
 Data fields:
- id - an anonymous id unique to a product
- feat_1, feat_2, ..., feat_93 - the various features of a product
- target - the class of a product (present only in train data)
+id - an anonymous id unique to a product
+feat_1, feat_2, ..., feat_93 - the various features of a product
+target - the class of a product (present only in train data)
 
 Train data consists of 61878 rows and 95 columns (id, feat_1-93, and target)
 Test data consists of 144368 rows and 94 columns (id, feat_1-93)
@@ -27,3 +27,14 @@ All features have been obscured and are not defined.
 There are nine categories for all products.
 Each target category represents one of most important product categories (like fashion, electronics, etc.). The products for the training and testing sets
 are selected randomly.
+
+
+We have implemented the following algorithms:
+Random Forest
+XGBoost
+We have chosen ensemble methods (i.e. Random Forest and XGBoost). Each method is a collection of classifiers and performs better than a single classifier.
+We trained Random Forest classifier using the Train Dataset and classified the test data.
+Visualizing the performance of classifier for various input parameter values we found the best fit for ntree and Mtry parameters.
+We later choose XGBoost classifier, divided the input train data into 3 folds, trained the classifier, predicted the test data.
+We observed the change in classifier performance for various combination of tuning parameters (nrounds, eta)
+Later we calculated the linear combination of predictions of Random Forest classifier and XGBoost classifier to check for an increase in accuracy.
